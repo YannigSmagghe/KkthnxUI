@@ -435,6 +435,7 @@ C["Party"] = {
 	["PortraitTimers"] = false,
 	["ShowBuffs"] = true,
 	["ShowPlayer"] = true,
+	["PartyAsRaid"] = false,
 	["Smooth"] = false,
 	["TargetHighlight"] = false,
 	["PortraitStyle"] = {

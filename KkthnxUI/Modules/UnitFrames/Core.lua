@@ -806,7 +806,7 @@ function Module:NameplatesCallback(event, unit)
 end
 
 function Module:GetPartyFramesAttributes()
-	local PartyProperties = "custom [group:party,nogroup:raid] show; hide"
+	local PartyProperties = C["Party"].PartyAsRaid and "custom [group:party] hide" or "custom [@raid6,exists] hide;show"
 
 	return "oUF_Party", nil, PartyProperties,
 	"oUF-initialConfigFunction", [[
@@ -828,7 +828,7 @@ function Module:GetPartyFramesAttributes()
 end
 
 function Module:GetDamageRaidFramesAttributes()
-	local DamageRaidProperties = "custom [group:raid] show; hide"
+	local DamageRaidProperties = C["Party"].PartyAsRaid and "custom [group:party] show" or "custom [@raid6,exists] show;hide"
 
 	return "oUF_Raid_Damage", nil, DamageRaidProperties,
 	"oUF-initialConfigFunction", [[
@@ -856,7 +856,7 @@ function Module:GetDamageRaidFramesAttributes()
 end
 
 function Module:GetHealerRaidFramesAttributes()
-	local HealerRaidProperties = "custom [group:raid] show; hide"
+	local HealerRaidProperties = C["Party"].PartyAsRaid and "custom [group:party] show" or "custom [@raid6,exists] show;hide"
 
 	return "oUF_Raid_Healer", nil, HealerRaidProperties,
 	"oUF-initialConfigFunction", [[
